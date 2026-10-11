@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw
+    tables:
+      - name: credit_clients
+        description: UCI "default of credit card clients" (Taiwan, Apr-Sep 2005), loaded by crm.ingest.

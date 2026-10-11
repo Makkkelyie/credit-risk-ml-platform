@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: stg_credit_clients
+    columns:
+      - name: client_id
+        data_tests: [unique, not_null]
+      - name: education
+        data_tests:
+          - accepted_values:
+              arguments: {values: [1, 2, 3, 4]}
+      - name: marriage
+        data_tests:
+          - accepted_values:
+              arguments: {values: [1, 2, 3]}
+
+  - name: fct_credit_features
+    description: Model-ready features, one row per client.
+    columns:
+      - name: client_id
+        data_tests: [unique, not_null]
+      - name: default_next_month
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments: {values: [0, 1]}
+      - name: max_delay_6m
+        data_tests: [not_null]
+      - name: utilization_m1
+        data_tests: [not_null]
+      - name: avg_repay_ratio_5m
+        data_tests: [not_null]

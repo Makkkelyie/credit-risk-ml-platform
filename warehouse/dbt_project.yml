@@ -1,0 +1,14 @@
+name: credit_risk
+version: "1.0.0"
+profile: credit_risk
+model-paths: ["models"]
+test-paths: ["tests"]
+target-path: "target"
+clean-targets: ["target", "dbt_packages"]
+
+models:
+  credit_risk:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table

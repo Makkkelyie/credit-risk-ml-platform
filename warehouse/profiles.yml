@@ -1,0 +1,8 @@
+credit_risk:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      # Set by crm.warehouse.run_dbt so tests can point dbt at a temporary warehouse.
+      path: "{{ env_var('CRM_WAREHOUSE', 'data/warehouse.duckdb') }}"
+      threads: 2
